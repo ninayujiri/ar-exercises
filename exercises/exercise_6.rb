@@ -8,56 +8,52 @@ require_relative './exercise_5'
 puts "Exercise 6"
 puts "----------"
 
-class Employee < ActiveRecord::Base
-  belongs_to :store
-end
-
 @store1.employees.create(
   first_name: 'Nina',
   last_name: 'Yujiri',
-  hourly_rate: 60
+  hourly_rate: 200
 )
 
 @store1.employees.create(
   first_name: 'Bob',
   last_name: 'Ross',
-  hourly_rate: 40
+  hourly_rate: 100
 )
 
 @store1.employees.create(
   first_name: 'Joe',
   last_name: 'Smith',
-  hourly_rate: 15
+  hourly_rate: 50
 )
 
 @store1.employees.create(
   first_name: 'Jane',
   last_name: 'Doe',
-  hourly_rate: 25
+  hourly_rate: 40
 )
 
 @store2.employees.create(
   first_name: 'Jake',
   last_name: 'Dowling',
-  hourly_rate: 45
+  hourly_rate: 150
 )
 
 @store2.employees.create(
   first_name: 'Marge',
   last_name: 'Simpson',
-  hourly_rate: 35
+  hourly_rate: 75
 )
 
 @store2.employees.create(
   first_name: 'Patrick',
   last_name: 'Star',
-  hourly_rate: 20
+  hourly_rate: 50
 )
 
 @store2.employees.create(
   first_name: 'Lucy',
   last_name: 'Lu',
-  hourly_rate: 50
+  hourly_rate: 60
 )
 
 puts Employee.count
