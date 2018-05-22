@@ -9,9 +9,15 @@ class Store < ActiveRecord::Base
 
   validate :mens_or_womens_apparel?
 
+  before_destroy :store_has_employees?
+
   private
 
   def mens_or_womens_apparel?
-    errors.add(:mens_or_womens_apparel, "must be assigned") unless mens_apparel == true || womens_apparel == true
+    errors.add(:mens_or_womens_apparel, "must be assigned") unless mens_apparel === true || womens_apparel === true
+  end
+
+  def store_has_employees?
+    throw(:abort) if self.employees.size > 0
   end
 end
