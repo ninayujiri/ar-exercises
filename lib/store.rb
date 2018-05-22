@@ -6,4 +6,12 @@ class Store < ActiveRecord::Base
   validates :annual_revenue,
       presence: true,
       numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
+  validate :mens_or_womens_apparel?
+
+  private
+
+  def mens_or_womens_apparel?
+    errors.add(:mens_or_womens_apparel, "must be assigned") unless mens_apparel == true || womens_apparel == true
+  end
 end
